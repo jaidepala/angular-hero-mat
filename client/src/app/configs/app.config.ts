@@ -5,7 +5,8 @@ export let APP_CONFIG = new InjectionToken('app.config');
 export const AppConfig: any = {
     routes: {
         heroes: 'heroes',
-        error404: '404'
+        error404: '404',
+        addHero: 'add-hero'
     },
     endpoints: {
         heroes: 'https://nodejs-example-app.herokuapp.com/heroes'

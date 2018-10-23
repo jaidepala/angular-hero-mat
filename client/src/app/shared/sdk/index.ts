@@ -34,13 +34,12 @@
 * export class AppModule { }
 *
 **/
-import { JSONSearchParams } from './services/core/search.params';
 import { ErrorHandler } from './services/core/error.service';
 import { LoopBackAuth } from './services/core/auth.service';
 import { LoggerService } from './services/custom/logger.service';
 import { SDKModels } from './services/custom/SDKModels';
 import { InternalStorage, SDKStorage } from './storage/storage.swaps';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CookieBrowser } from './storage/cookie.browser';
@@ -50,7 +49,11 @@ import { SocketDriver } from './sockets/socket.driver';
 import { SocketConnection } from './sockets/socket.connections';
 import { RealTime } from './services/core/real.time';
 import { UserApi } from './services/custom/User';
+import { ClientApi } from './services/custom/Client';
 import { Angular_LoopbackApi } from './services/custom/Angular_Loopback';
+import { HeroApi } from './services/custom/Hero';
+import { SerieApi } from './services/custom/Serie';
+import { SeasonApi } from './services/custom/Season';
 /**
 * @module SDKBrowserModule
 * @description
@@ -61,7 +64,7 @@ import { Angular_LoopbackApi } from './services/custom/Angular_Loopback';
 *  3.- Progressive applications (Angular Mobile, Ionic, WebViews, etc)
 **/
 @NgModule({
-  imports:      [ CommonModule, HttpModule ],
+  imports:      [ CommonModule, HttpClientModule ],
   declarations: [ ],
   exports:      [ ],
   providers:    [
@@ -79,11 +82,14 @@ export class SDKBrowserModule {
       providers : [
         LoopBackAuth,
         LoggerService,
-        JSONSearchParams,
         SDKModels,
         RealTime,
         UserApi,
+        ClientApi,
         Angular_LoopbackApi,
+        HeroApi,
+        SerieApi,
+        SeasonApi,
         internalStorageProvider,
         { provide: SDKStorage, useClass: StorageBrowser },
         { provide: SocketDriver, useClass: SocketBrowser }

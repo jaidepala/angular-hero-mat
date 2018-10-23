@@ -2,17 +2,26 @@ import {
     MatAutocompleteModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatGridListModule,
+    MatFormFieldModule,
     MatIconModule,
     MatInputModule,
     MatListModule,
     MatMenuModule,
     MatProgressBarModule,
     MatProgressSpinnerModule,
+    MatSelectModule,
+    MatOptionModule,
     MatSliderModule,
     MatSnackBarModule,
-    MatTooltipModule
+    MatRadioModule,
+    MatTooltipModule,
+    MatSlideToggleModule,
+    ErrorStateMatcher,
+    ShowOnDirtyErrorStateMatcher
 } from '@angular/material';
 import { NgModule } from '@angular/core';
 
@@ -22,32 +31,50 @@ import { NgModule } from '@angular/core';
         MatMenuModule,
         MatIconModule,
         MatCardModule,
+        MatSelectModule,
+        MatOptionModule,
         MatSliderModule,
         MatProgressBarModule,
         MatAutocompleteModule,
         MatInputModule,
         MatGridListModule,
+        MatFormFieldModule,
         MatSnackBarModule,
+        MatRadioModule,
         MatProgressSpinnerModule,
         MatTooltipModule,
+        MatSlideToggleModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
+    providers: [{
+        provide: ErrorStateMatcher, 
+        useClass: ShowOnDirtyErrorStateMatcher
+    }],
     exports: [
         MatButtonModule,
         MatMenuModule,
         MatIconModule,
         MatCardModule,
+        MatSelectModule,
+        MatOptionModule,
         MatSliderModule,
         MatProgressBarModule,
         MatAutocompleteModule,
         MatInputModule,
         MatGridListModule,
+        MatFormFieldModule,
         MatSnackBarModule,
+        MatRadioModule,
         MatProgressSpinnerModule,
         MatTooltipModule,
+        MatSlideToggleModule,
         MatListModule,
-        MatDialogModule
+        MatDialogModule,
+        MatDatepickerModule,
+        MatNativeDateModule
     ],
 })
 

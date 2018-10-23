@@ -1,0 +1,133 @@
+<div class="example-container">
+	<mat-card>    
+	    <!-- Title of an Card -->    
+	    <mat-card-title>    
+	        Add a hero...
+	    </mat-card-title>    
+	    
+	    <mat-card-content>    
+	        <form name="heroObjForm">    
+	            <table class="add-hero-table">
+	                <tr>    
+	                    <td>    
+	                        <mat-form-field class="demo-full-width">    
+	                            <input 
+	                            		matInput 
+	                            		name="heroName"
+	                            		[(ngModel)]="heroObj.name"
+	                            		placeholder="Superhero Name"
+                        		/>    
+	                        </mat-form-field>    
+	                    </td>    
+	                    <td>    
+	                        <mat-form-field class="demo-full-width">
+	                            <input 
+	                            		matInput 
+	                            		name="heroAlterEgo"
+	                            		[(ngModel)]="heroObj.alterEgo"
+	                            		placeholder="Alter ego"
+                        		/>    
+	                        </mat-form-field>
+	                    </td>    
+	                </tr>
+	                <tr>    
+	                    <td colspan="2">    
+	                         <mat-form-field class="demo-full-width">
+	                            <textarea 
+	                            			matInput 
+	                            			name="heroAddress"
+	                            			placeholder="Address" 
+	                            			matAutosize="true" 
+	                            			matAutosizeMinRows="2" 
+	                            			matAutosizeMaxRows="5"></textarea>    
+	                        </mat-form-field>
+	                    </td>    
+	                </tr>    
+	                <tr>
+	                    <td colspan="2">    
+	                        <mat-form-field class="demo-full-width">    
+	                            <input 
+	                            		matInput 
+	                            		name="heroDateOfEstablishment"
+	                            		[(ngModel)]="heroObj.dateOfEstablishment"
+	                            		[matDatepicker]="picker" 
+	                            		placeholder="Date of birth"
+                        		/>
+
+	                            <mat-datepicker-toggle 
+                						matSuffix 
+                						[for]="picker">
+                            	</mat-datepicker-toggle>    
+	                            <mat-datepicker 
+	                            		touchUi="true" 
+	                            		#picker>
+                            	</mat-datepicker>
+	                        </mat-form-field>    
+	                    </td> 
+	                </tr>    
+	                <tr>    
+	                    <td>    
+	                        <span>Gender</span><br><br>    
+	                        <mat-radio-group name="heroGender" [(ngModel)]="heroObj.gender">
+	                            <mat-radio-button value="Male">
+	                            	Male &nbsp;&nbsp;&nbsp;
+	                        	</mat-radio-button>
+	                            <mat-radio-button value="Female">
+	                            	Female &nbsp;&nbsp;&nbsp;
+	                        	</mat-radio-button> 
+	                            <mat-radio-button value="Bi">
+	                            	Bi &nbsp;&nbsp;&nbsp;
+	                        	</mat-radio-button> 
+	                        </mat-radio-group>    
+	                    </td>    
+	                    <td><br>
+	                        <mat-form-field>
+	                            <mat-select 
+	                            			placeholder="Select Blog" 
+	                            			name="heroProduction"
+	                            			[(value)]="heroObj.production"> 
+
+			                                <mat-option>-- Select Production --</mat-option>    
+			                                <mat-option value="DC">
+			                                	DC
+			                                </mat-option>    
+			                                <mat-option value="Marvel">
+			                                	Marvel
+			                                </mat-option>    
+			                                <mat-option value="Sony">
+			                                	Sony
+			                                </mat-option>    
+	                            </mat-select>    
+	                        </mat-form-field>
+	                    </td>    
+	                </tr>    
+	                <tr>    
+	                    <td colspan="2">    
+	                        <mat-form-field class="demo-full-width">    
+	                            <input 
+	                            		matInput 
+	                            		placeholder="Email"
+                        		/>
+	                        </mat-form-field>    
+	                    </td>    
+	                </tr>
+	                <tr>
+	                    <td colspan="2" class="content-center">    
+	                        <button 
+	                        		mat-raised-button 
+	                        		(click)="createHero()"
+	                        		color="accent">
+	                        		Submit
+                        	</button>    
+	                        <button 
+	                        		mat-raised-button 
+	                        		color="accent">
+	                        		Clear
+                        	</button>    
+	                    </td>    
+	                </tr>    
+	            </table>    
+	        </form>    
+	    </mat-card-content>    
+	</mat-card> 
+</div>

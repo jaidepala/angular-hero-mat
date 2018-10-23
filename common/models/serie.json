@@ -1,0 +1,38 @@
+{
+  "name": "serie",
+  "plural": "series",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "dateOfEstablishment": {
+      "type": [
+        "string"
+      ],
+      "required": true
+    },
+    "medium": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "type": "string"
+    },
+    "totalSeasons": {
+      "type": "number"
+    },
+    "production": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

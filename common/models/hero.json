@@ -1,0 +1,40 @@
+{
+    "name": "hero",
+    "plural": "heroes",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options":
+    {
+        "validateUpsert": true
+    },
+    "properties":
+    {
+        "name":
+        {
+            "type": "string",
+            "required": true
+        },
+        "alterEgo":
+        {
+            "type": "string"
+        },
+        "likes":
+        {
+            "type": "number"
+        },
+        "dateOfEstablishment":
+        {
+            "type": "date"
+        },
+        "image":
+        {
+            "type": "string"
+        }
+    },
+    "validations": [],
+    "relations":
+    {},
+    "acls": [],
+    "methods":
+    {}
+}

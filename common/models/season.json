@@ -1,0 +1,36 @@
+{
+  "name": "season",
+  "plural": "seasons",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "seasonNo": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "totalSeason": {
+      "type": "number",
+      "required": true
+    },
+    "episodes": {
+      "type": [
+        "string"
+      ],
+      "default": [
+        "[]"
+      ]
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

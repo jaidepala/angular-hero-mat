@@ -42,7 +42,8 @@ export class AddHeroService {
 	    };
 	}
 
-	createHero(hero: AddHero) {
+	// createHero(hero: AddHero): Observable <AddHero> {
+	createHero( hero ) {
 
 		return this.hero.create( JSON.stringify(hero) )
 		    .pipe(

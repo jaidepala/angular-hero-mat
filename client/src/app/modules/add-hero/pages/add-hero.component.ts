@@ -16,7 +16,8 @@ import { AddHeroService } from '../shared/services/add-hero.service';
 @Component({
 	selector: 'app-add-hero',
 	templateUrl: './add-hero.component.html',
-	styleUrls: ['./add-hero.component.css']
+	styleUrls: ['./add-hero.component.css'],
+    animations: [UtilsHelperService.fadeInOut()]
 })
 export class AddHeroComponent implements OnInit {
 
@@ -25,17 +26,17 @@ export class AddHeroComponent implements OnInit {
 
 	public heroObj: AddHero = {
 
-		// name: 'Spiderman',
-		// alterEgo: 'Peter Parker',
-		// dateOfEstablishment: '10/22/1993',
-		// gender: 'Male',
-		// production: 'Marvel'
+		name: 'Spiderman',
+		alterEgo: 'Peter Parker',
+		dateOfEstablishment: '10/22/1993',
+		gender: 'Male',
+		production: 'Marvel'
 
-		name: '',
-		alterEgo: '',
-		dateOfEstablishment: '',
-		gender: '',
-		production: ''
+		// name: '',
+		// alterEgo: '',
+		// dateOfEstablishment: '',
+		// gender: '',
+		// production: ''
 	};
 
 	constructor(

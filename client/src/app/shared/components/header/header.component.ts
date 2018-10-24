@@ -45,7 +45,8 @@ export class HeaderComponent implements OnInit {
         this.menuItems = [
             { link: '/', name: _('home') },
             { link: '/' + AppConfig.routes.heroes, name: _('heroesList') },
-            { link: '/' + AppConfig.routes.addHero, name: _('addHero') }
+            { link: '/' + AppConfig.routes.addHero, name: _('addHero') },
+            { link: '/' + AppConfig.routes.listHero, name: _('listHero') }
         ];
     }
 }

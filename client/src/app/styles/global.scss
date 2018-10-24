@@ -49,6 +49,12 @@ h1, h2 {
   background-size: cover;
 }
 
+.hide {
+  display: none!important;
+  opacity: 0!important;
+  visibility: hidden!important;
+}
+
 .text--center {
   text-align: center;
 }

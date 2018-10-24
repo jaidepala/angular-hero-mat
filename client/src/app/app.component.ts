@@ -10,6 +10,8 @@ import { LocalStorage } from 'ngx-store';
 import { UtilsHelperService } from './core/services/utils-helper.service';
 import { Angular_LoopbackApi } from './shared/sdk/index';
 
+import { environment } from '../environments/environment';
+
 declare const require;
 declare const Modernizr;
 
@@ -33,7 +35,8 @@ export class AppComponent implements OnInit {
         private router: Router
     ) {
         //Just note that this will need to be done to new components that you create if you want to give it access to our loopback app.
-        LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+        // LoopBackConfig.setBaseURL("http://127.0.0.1:3000");
+        LoopBackConfig.setBaseURL( environment.DOMAIN );
         LoopBackConfig.setApiVersion('api');
         this.isOnline = navigator.onLine;
     }
@@ -46,7 +49,7 @@ export class AppComponent implements OnInit {
         // With this we load the default language in the main bundle (cache busting)
         this.translateService.setTranslation('en', require('../assets/i18n/en.json'));
 
-        this.title.setTitle('Angular Example App');
+        // this.title.setTitle('Heroes Material App');
 
         this.onEvents();
         this.checkBrowser();
@@ -67,6 +70,13 @@ export class AppComponent implements OnInit {
                         this.meta.updateTag({
                             name: 'description',
                             content: 'List of super-heroes'
+                        });
+                        break;
+                    case '/' + AppConfig.routes.addHero:
+                        this.title.setTitle('Add a Hero');
+                        this.meta.updateTag({
+                            name: 'description',
+                            content: 'Add super-hero'
                         });
                         break;
                 }

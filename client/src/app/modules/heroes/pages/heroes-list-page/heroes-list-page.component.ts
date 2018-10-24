@@ -43,6 +43,7 @@ export class HeroesListPageComponent implements OnInit {
   }
 
   ngOnInit() {
+
     this.heroService.getHeroes().subscribe((heroes: Array<Hero>) => {
       this.heroes = heroes.sort((a, b) => {
         return b.likes - a.likes;

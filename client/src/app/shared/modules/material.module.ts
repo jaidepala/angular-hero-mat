@@ -23,10 +23,13 @@ import {
     ErrorStateMatcher,
     ShowOnDirtyErrorStateMatcher
 } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+
 import { NgModule } from '@angular/core';
 
 @NgModule({
     imports: [
+        FlexLayoutModule,
         MatButtonModule,
         MatMenuModule,
         MatIconModule,

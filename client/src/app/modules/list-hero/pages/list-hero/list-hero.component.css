@@ -1,0 +1,16 @@
+.text--right .mat-form-field {
+	right: 40px;
+}
+
+.hero-card-list {
+	
+}
+
+.hero-card {
+	max-width: 400px;
+}
+
+.hero-header-image {
+	/*background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');*/
+	background-size: cover;
+}

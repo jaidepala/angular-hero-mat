@@ -1,12 +1,15 @@
 <!doctype html>
 <html>
 <head>
-    <title>Angular Example App</title>
+    <title>Heroes Material App | JD</title>
     <meta content='Angular example app is a base project to start coding with Angular' name='description'>
     <meta charset="utf-8">
+    
     <meta http-equiv="Content-Security-Policy"
           content="
-          default-src 'self' 'unsafe-inline' 'unsafe-eval'
+          default-src *;
+          img-src * 'self' data: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;
+          style-src  'self' 'unsafe-inline' *
           data:
           blob:
           wss:
@@ -20,6 +23,8 @@
           https://*.gstatic.com
           https://*.googleapis.com
           https://*.herokuapp.com
+          https://heroes-material.herokuapp.com
+          https://source.unsplash.com
           https://authedmine.com
           http://127.0.0.1:3000
 

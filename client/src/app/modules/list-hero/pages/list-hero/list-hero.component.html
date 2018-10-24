@@ -1,0 +1,87 @@
+<div class="text--right">
+	<mat-form-field>
+	    <mat-select 
+	    			placeholder="Select Production" 
+	    			name="heroProduction"
+	    			(selectionChange)="changeProduction( $event.value )"
+	    			[(value)]="heroObj.production"> 
+
+	                <mat-option>-- Select Production --</mat-option>    
+	                <mat-option value="DC">
+	                	DC
+	                </mat-option>    
+	                <mat-option value="Marvel">
+	                	Marvel
+	                </mat-option>    
+	                <mat-option value="Sony">
+	                	Sony
+	                </mat-option>    
+	    </mat-select>    
+	</mat-form-field>
+</div>
+<mat-card>
+
+	<div 
+			*ngIf="heroObj.loader == 1"
+			class="hero-list-container text--center">
+
+			<mat-spinner></mat-spinner>
+
+	</div> 
+	<div 
+			*ngIf="heroObj.loader > 1"
+			class="hero-list-container">
+
+			<div *ngIf="!heroObj.list || heroObj.list.length == 0">
+				<h3 mat-line>
+					Go and add a superhero
+				</h3>
+
+				<a mat-raised-button routerLink="/add-hero">
+					Add Here 
+				</a>
+			</div>
+
+			<mat-grid-list 
+					class="hero-card-list" 
+					cols="3" 
+					*ngIf="heroObj.list && heroObj.list.length > 0">
+
+				<mat-card 
+						class="hero-card"
+						*ngFor="let hero of heroObj.list;
+								let index = index">
+
+							<mat-card-header>
+								<div 
+										mat-card-avatar 
+										[ngStyle]="{'background-image': 'url(' + 'https://via.placeholder.com/50x50/212121/fff?text=' + hero.production + ')'}"
+										class="hero-header-image">
+								</div>
+								<mat-card-title>
+									{{ hero.alterEgo }}
+								</mat-card-title>
+								<mat-card-subtitle>
+									{{ hero.production }}
+								</mat-card-subtitle>
+							</mat-card-header>
+							<img 
+									mat-card-image 
+									src="{{ 'https://via.placeholder.com/400x400/3f51b5/fff?text=' + hero.name }}"
+							/>
+							<mat-card-content>
+								<p class="hide">
+									{{ hero.production }}
+								</p>
+							</mat-card-content>
+							<mat-card-actions>
+								<button mat-button>LIKE</button>
+								<button mat-button>SHARE</button>
+								<button mat-button>SHARE</button>
+							</mat-card-actions>
+					</mat-card>
+			</mat-grid-list>
+	</div>
+	
+
+</mat-card>

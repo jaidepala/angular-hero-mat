@@ -6,7 +6,8 @@ export const AppConfig: any = {
     routes: {
         heroes: 'heroes',
         error404: '404',
-        addHero: 'add-hero'
+        addHero: 'add-hero',
+        listHero: 'list-hero'
     },
     endpoints: {
         heroes: 'https://nodejs-example-app.herokuapp.com/heroes'

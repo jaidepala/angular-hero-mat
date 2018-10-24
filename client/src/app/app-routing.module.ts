@@ -9,6 +9,7 @@ const routes: Routes = [
     
     { path: AppConfig.routes.heroes, loadChildren: './modules/heroes/heroes.module#HeroesModule' },
     { path: AppConfig.routes.addHero, loadChildren: './modules/add-hero/add-hero.module#AddHeroModule' },
+    { path: AppConfig.routes.listHero, loadChildren: './modules/list-hero/list-hero.module#ListHeroModule' },
     { path: AppConfig.routes.error404, component: Error404PageComponent },
 
     // otherwise redirect to 404

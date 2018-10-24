@@ -26,17 +26,17 @@ export class AddHeroComponent implements OnInit {
 
 	public heroObj: AddHero = {
 
-		name: 'Spiderman',
-		alterEgo: 'Peter Parker',
-		dateOfEstablishment: '10/22/1993',
-		gender: 'Male',
-		production: 'Marvel'
+		// name: 'Spiderman',
+		// alterEgo: 'Peter Parker',
+		// dateOfEstablishment: '10/22/1993',
+		// gender: 'Male',
+		// production: 'Marvel'
 
-		// name: '',
-		// alterEgo: '',
-		// dateOfEstablishment: '',
-		// gender: '',
-		// production: ''
+		name: '',
+		alterEgo: '',
+		dateOfEstablishment: '',
+		gender: '',
+		production: ''
 	};
 
 	constructor(

@@ -59,5 +59,7 @@
     "yellow": "Yellow",
     "yes": "Yes",
     "addHero": "Add Hero",
-    "listHero": "List Hero"
+    "listHero": "List Hero",
+    "heroCreated": "Hero created successfully.",
+    "heroCreateFail": "Hero could not be created."
 }

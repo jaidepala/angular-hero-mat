@@ -124,8 +124,7 @@ export class AddHeroComponent implements OnInit {
 export class SpinnerOverviewDialog {
 
   	constructor(
-    	public dialogRef: MatDialogRef<SpinnerOverviewDialog>,
-    	@Inject(MAT_DIALOG_DATA) public data: DialogData
+    	public dialogRef: MatDialogRef<SpinnerOverviewDialog>
 	) {
 
   	}

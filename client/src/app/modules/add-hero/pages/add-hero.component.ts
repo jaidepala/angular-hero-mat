@@ -1,15 +1,17 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Inject, ElementRef } from '@angular/core';
 
 // import { Router } from '@angular/Router';
 import { LoggerService } from '../../../core/services/logger.service';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialog, MatSnackBar } from '@angular/material';
+import { MatDialog, MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 import { _ } from '@biesbjerg/ngx-translate-extract/dist/utils/utils';
 
 import { TranslateService } from '@ngx-translate/core';
 import { UtilsHelperService } from '../../../core/services/utils-helper.service';
 
+import { AppConfig } from '../../../configs/app.config';
 import { AddHero } from '../shared/services/add-hero.model';
 import { AddHeroService } from '../shared/services/add-hero.service';
 
@@ -23,6 +25,8 @@ export class AddHeroComponent implements OnInit {
 
 	// #picker
 	// @ViewChild('picker') datePicker: ElementRef;
+
+	public loadingDialog = null;
 
 	public heroObj: AddHero = {
 
@@ -54,16 +58,79 @@ export class AddHeroComponent implements OnInit {
 
 	ngOnInit() {};
 
+	openDialog(): void {
+
+		this.loadingDialog = this.dialog.open(SpinnerOverviewDialog, {
+			disableClose: true
+		});
+	}
+
+	clearHero() {
+
+		this.heroObj.name = '';
+		this.heroObj.alterEgo = '';
+		this.heroObj.dateOfEstablishment = '';
+		this.heroObj.gender = '';
+		this.heroObj.production = '';
+	};
+
 	createHero() {
+
+		this.openDialog();
 
 		this.hero.createHero(this.heroObj).subscribe((hero) => {
 
-			console.log('hero', hero);
+		    this.loadingDialog.close();
+
+		    if( !hero || hero == null ) {
+
+	            this.translateService.get([String(_('heroCreateFail'))]).subscribe((texts) => {
+	                this.snackBar.open(texts['heroCreateFail']);
+	            });
+
+		    	return false;
+		    };
+
+		    this.clearHero();
+
+            const config: any = new MatSnackBarConfig();
+            config.duration = AppConfig.snackBarDuration;
+
+            this.translateService.get([String(_('heroCreated'))]).subscribe((texts) => {
+                this.snackBar.open(texts['heroCreated'], 'OK', config);
+            });
 
 		}, (error: Response) => {
 
 			LoggerService.error('maximum votes limit reached', error);
+
+		    this.loadingDialog.close();
+
+            const config: any = new MatSnackBarConfig();
+            config.duration = AppConfig.snackBarDuration;
+
+            this.translateService.get([String(_('heroCreateFail'))]).subscribe((texts) => {
+                this.snackBar.open(texts['heroCreateFail'], 'Try Again!', config);
+            });
 		});
 	};
 
+}
+
+@Component({
+  selector: 'spinner-overview-dialog',
+  template: '<div class="overload-spinner"><mat-spinner></mat-spinner></div>',
+})
+export class SpinnerOverviewDialog {
+
+  	constructor(
+    	public dialogRef: MatDialogRef<SpinnerOverviewDialog>,
+    	@Inject(MAT_DIALOG_DATA) public data: DialogData
+	) {
+
+  	}
+
+	onNoClick(): void {
+		this.dialogRef.close();
+	};
 }

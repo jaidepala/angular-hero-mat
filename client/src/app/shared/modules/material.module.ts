@@ -1,6 +1,7 @@
 import {
     MatAutocompleteModule,
     MatButtonModule,
+    MatButtonToggleModule,
     MatCardModule,
     MatDatepickerModule,
     MatNativeDateModule,
@@ -31,6 +32,7 @@ import { NgModule } from '@angular/core';
     imports: [
         FlexLayoutModule,
         MatButtonModule,
+        MatButtonToggleModule,
         MatMenuModule,
         MatIconModule,
         MatCardModule,
@@ -58,6 +60,7 @@ import { NgModule } from '@angular/core';
     }],
     exports: [
         MatButtonModule,
+        MatButtonToggleModule,
         MatMenuModule,
         MatIconModule,
         MatCardModule,

@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../../shared/shared.module';
 
 import { AddHeroRoutingModule } from './add-hero-routing.module';
-import { AddHeroComponent } from './pages/add-hero.component';
+import { AddHeroComponent, SpinnerOverviewDialog } from './pages/add-hero.component';
 
 @NgModule({
 	imports: [
@@ -15,13 +15,16 @@ import { AddHeroComponent } from './pages/add-hero.component';
 		AddHeroRoutingModule
 	],
 	declarations: [
-		AddHeroComponent
+		AddHeroComponent,
+		SpinnerOverviewDialog
 	],
     exports: [
-        AddHeroComponent
+        AddHeroComponent,
+        SpinnerOverviewDialog
     ],
     entryComponents: [
-        AddHeroComponent
+        AddHeroComponent,
+        SpinnerOverviewDialog
     ]
 
 })

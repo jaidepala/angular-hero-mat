@@ -8,9 +8,9 @@
 	    <mat-card-content>    
 	        <form name="heroObjForm">    
 	            <table class="add-hero-table">
-	                <tr>    
+	                <tr>
 	                    <td>    
-	                        <mat-form-field class="demo-full-width">    
+	                        <mat-form-field class="demo-half-width">    
 	                            <input 
 	                            		matInput 
 	                            		name="heroName"
@@ -19,8 +19,8 @@
                         		/>    
 	                        </mat-form-field>    
 	                    </td>    
-	                    <td>    
-	                        <mat-form-field class="demo-full-width">
+	                    <td>
+	                        <mat-form-field class="demo-half-width">
 	                            <input 
 	                            		matInput 
 	                            		name="heroAlterEgo"
@@ -51,7 +51,7 @@
 	                            		name="heroDateOfEstablishment"
 	                            		[(ngModel)]="heroObj.dateOfEstablishment"
 	                            		[matDatepicker]="picker" 
-	                            		placeholder="Date of birth"
+	                            		placeholder="Date of establishment"
                         		/>
 
 	                            <mat-datepicker-toggle 
@@ -64,26 +64,31 @@
                             	</mat-datepicker>
 	                        </mat-form-field>    
 	                    </td> 
-	                </tr>    
-	                <tr>    
-	                    <td>    
-	                        <span>Gender</span><br><br>    
-	                        <mat-radio-group name="heroGender" [(ngModel)]="heroObj.gender">
-	                            <mat-radio-button value="Male">
-	                            	Male &nbsp;&nbsp;&nbsp;
-	                        	</mat-radio-button>
-	                            <mat-radio-button value="Female">
-	                            	Female &nbsp;&nbsp;&nbsp;
-	                        	</mat-radio-button> 
-	                            <mat-radio-button value="Bi">
-	                            	Bi &nbsp;&nbsp;&nbsp;
-	                        	</mat-radio-button> 
-	                        </mat-radio-group>    
-	                    </td>    
-	                    <td><br>
-	                        <mat-form-field>
+	                </tr>
+	                <tr>
+	                    <td>
+	                        <span>Gender</span><br><br> 
+							<mat-button-toggle-group 
+									class="demo-gender-width" 
+									name="heroGender" 
+									[(ngModel)]="heroObj.gender">
+
+									<mat-button-toggle value="Male">
+										Male
+									</mat-button-toggle>
+									<mat-button-toggle value="Female">
+										Female
+									</mat-button-toggle>
+									<mat-button-toggle value="Bi">
+										Bi
+									</mat-button-toggle>
+							</mat-button-toggle-group>    
+	                    </td> 
+	                    <td>
+	                        <span>Select Production</span><br><br> 
+	                        <mat-form-field class="demo-half-width">
 	                            <mat-select 
-	                            			placeholder="Select Blog" 
+	                            			placeholder="Production" 
 	                            			name="heroProduction"
 	                            			[(value)]="heroObj.production"> 
 
@@ -121,7 +126,8 @@
                         	</button>    
 	                        <button 
 	                        		mat-raised-button 
-	                        		color="accent">
+	                        		(click)="clearHero()"
+	                        		color="basic">
 	                        		Clear
                         	</button>    
 	                    </td>    

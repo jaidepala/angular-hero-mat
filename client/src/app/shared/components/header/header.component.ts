@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
     appConfig: any;
     menuItems: any[];
+    contextItems: any[];
     progressBarMode: string;
     currentLang: string;
 
@@ -44,9 +45,12 @@ export class HeaderComponent implements OnInit {
     private loadMenus(): void {
         this.menuItems = [
             { link: '/', name: _('home') },
-            { link: '/' + AppConfig.routes.heroes, name: _('heroesList') },
-            { link: '/' + AppConfig.routes.addHero, name: _('addHero') },
-            { link: '/' + AppConfig.routes.listHero, name: _('listHero') }
+            { link: '/' + AppConfig.routes.heroes, name: _('heroesList') }
+        ];
+
+        this.contextItems = [
+            { icon: 'add', link: '/' + AppConfig.routes.addHero, name: _('addHero') },
+            { icon: 'person_pin', link: '/' + AppConfig.routes.listHero, name: _('listHero') }
         ];
     }
 }

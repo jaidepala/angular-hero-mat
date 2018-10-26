@@ -59,7 +59,10 @@
     "yellow": "Yellow",
     "yes": "Yes",
     "addHero": "Add Hero",
+    "editHero": "Edit Hero",
     "listHero": "List Hero",
     "heroCreated": "Hero created successfully.",
+    "heroDetailFail": "Could not fetch hero details.",
+    "heroDetailSuccess": "Hero edited successfully.",
     "heroCreateFail": "Hero could not be created."
 }

@@ -26,6 +26,8 @@ export class ListHeroComponent implements OnInit {
 
 		loader: 0,
 
+		breakpoint: (window.innerWidth <= 400) ? 1 : 3,
+
 		list: []
 	};
 
@@ -41,6 +43,11 @@ export class ListHeroComponent implements OnInit {
 
 		this.getAllHeroes( {} );
 	};
+
+	onResize(event) {
+
+		this.heroObj.breakpoint = (event.target.innerWidth <= 400) ? 1 : 6;
+	}
 
 	getAllHeroes( filterObj ) {
 

@@ -102,7 +102,7 @@ export class AddHeroComponent implements OnInit {
 
 		}, (error: Response) => {
 
-			LoggerService.error('maximum votes limit reached', error);
+			LoggerService.error('Could not add hero!', error);
 
 		    this.loadingDialog.close();
 

@@ -46,13 +46,17 @@
 
 			<mat-grid-list 
 					class="hero-card-list" 
-					cols="3" 
+					[cols]="heroObj.breakpoint" 
+					rowHeight="3:3.9" 
+					(window:resize)="onResize($event)"
 					*ngIf="heroObj.list && heroObj.list.length > 0">
 
-				<mat-card 
+				<mat-grid-tile 
 						class="hero-card"
 						*ngFor="let hero of heroObj.list;
 								let index = index">
+
+						<mat-card>
 
 							<mat-card-header>
 								<div 
@@ -77,11 +81,19 @@
 								</p>
 							</mat-card-content>
 							<mat-card-actions>
-								<button mat-button>LIKE</button>
-								<button mat-button>SHARE</button>
-								<button mat-button>SHARE</button>
+								<button mat-button>
+									Like <mat-icon>plus_one</mat-icon>
+								</button>
+								<button mat-button>
+									Share <mat-icon>share</mat-icon>
+								</button>
+								<button mat-button routerLink="/edit-hero/{{ hero.name + ' ' + hero.id | replaceWithHyphen }}">
+									Edit <mat-icon>create</mat-icon>
+								</button>
 							</mat-card-actions>
-					</mat-card>
+						</mat-card>
+				</mat-grid-tile>
+
 			</mat-grid-list>
 	</div>
 	

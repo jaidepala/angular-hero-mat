@@ -7,6 +7,8 @@ import { HeroApi } from '../../../../shared/sdk/services/custom/Hero';
 import { Observable } from 'rxjs/Rx';
 import { of , throwError as observableThrowError, empty } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { MatDialog, MatSnackBar } from '@angular/material';
 
@@ -63,14 +65,13 @@ export class AddHeroService {
 
 		        	LoggerService.log(`adding hero...`);
 
-		        	// this.showSnackBar('heroCreated');
 		        }),
 		        catchError((err: HttpErrorResponse) => {
 
 		        	AddHeroService.handleError('create heroes', err);
 
 		            if ((err.status == 400) || (err.status == 401)) {
-		                // this.interceptorRedirectService.getInterceptedSource().next(err.status);
+
 		                return Observable.empty();
 		            } else {
 		                return Observable.throw(err);

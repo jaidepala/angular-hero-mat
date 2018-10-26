@@ -7,6 +7,7 @@ export const AppConfig: any = {
         heroes: 'heroes',
         error404: '404',
         addHero: 'add-hero',
+        editHero: 'edit-hero',
         listHero: 'list-hero'
     },
     endpoints: {

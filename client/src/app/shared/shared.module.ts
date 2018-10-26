@@ -16,6 +16,7 @@ import { ScrollToFirstInvalidDirective } from './directives/scroll-to-first-inva
 import { NgxExampleLibraryModule } from '@ismaestro/ngx-example-library';
 import { WebStorageModule } from 'ngx-store';
 import { HeroLoadingComponent } from './components/hero-loading/hero-loading.component';
+import { ReplaceWithHyphenPipe } from './pipes/replace-with-hyphen.pipe';
 
 @NgModule({
     imports: [
@@ -38,7 +39,8 @@ import { HeroLoadingComponent } from './components/hero-loading/hero-loading.com
         SpinnerComponent,
         HeroCardComponent,
         HeroLoadingComponent,
-        ScrollToFirstInvalidDirective
+        ScrollToFirstInvalidDirective,
+        ReplaceWithHyphenPipe
     ],
     exports: [
         CommonModule,
@@ -53,7 +55,8 @@ import { HeroLoadingComponent } from './components/hero-loading/hero-loading.com
         SpinnerComponent,
         HeroCardComponent,
         HeroLoadingComponent,
-        ScrollToFirstInvalidDirective
+        ScrollToFirstInvalidDirective,
+        ReplaceWithHyphenPipe
     ]
 })
 
